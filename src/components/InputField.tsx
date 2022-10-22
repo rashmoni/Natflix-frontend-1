@@ -1,5 +1,5 @@
 // Node modules
-import { ChangeEvent } from "react";
+import { ChangeEvent, useEffect } from "react";
 
 // Project files
 import iInputField from "interfaces/iInputField";
@@ -13,11 +13,20 @@ export default function InputField({ field, state }: iProps) {
   const { key, autoFocus, label, placeholder, type, required } = field;
   const [value, setValue] = state;
 
+  // Properties
+  const initialValue = value[key] ?? "";
+
   // Methods
   function onChange(event: ChangeEvent<HTMLInputElement>) {
+    const newValue = event.target.value;
+
+    changeValue(newValue);
+  }
+
+  function changeValue(newValue: any) {
     const clonedItem = { ...value };
 
-    clonedItem[key] = event.target.value;
+    clonedItem[key] = newValue;
     setValue(clonedItem);
   }
 
@@ -30,7 +39,7 @@ export default function InputField({ field, state }: iProps) {
         placeholder={placeholder}
         required={required}
         type={type}
-        value={value[key]}
+        value={initialValue}
       />
     </label>
   );
