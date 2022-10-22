@@ -1,5 +1,5 @@
 // Node modules
-import { ChangeEvent, useEffect } from "react";
+import { ChangeEvent } from "react";
 
 // Project files
 import iInputField from "interfaces/iInputField";
