@@ -1,5 +1,5 @@
 // Node modules
-import { ChangeEvent } from "react";
+import { ChangeEvent, useEffect } from "react";
 
 // Project files
 import iInputSelect from "interfaces/iInputSelect";
@@ -14,14 +14,23 @@ export default function Select({ field, state }: iProps) {
   const [value, setValue] = state;
 
   // Properties
-  const selectedOption = value[key];
+  const selectedOption = value[key] ?? 1;
 
   // Methods
+  useEffect(() => {
+    changeValue(selectedOption);
+  }, []);
+
   function onChange(event: ChangeEvent<HTMLSelectElement>) {
+    const userSelectedValue = Number(event.target.value);
+
+    changeValue(userSelectedValue);
+  }
+
+  function changeValue(newValue: number) {
     const clonedItem = { ...value };
 
-    clonedItem[key] = Number(event.target.value);
-
+    clonedItem[key] = newValue;
     setValue(clonedItem);
   }
 
