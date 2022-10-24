@@ -13,14 +13,6 @@ export default function Select({ field, state }: iProps) {
   const { label, key, options } = field;
   const [value, setValue] = state;
 
-  // Properties
-  const selectedOption = value[key] ?? 1;
-
-  // Methods
-  useEffect(() => {
-    changeValue(selectedOption);
-  }, []);
-
   function onChange(event: ChangeEvent<HTMLSelectElement>) {
     const userSelectedValue = Number(event.target.value);
 
@@ -44,7 +36,10 @@ export default function Select({ field, state }: iProps) {
   return (
     <label className="input input-select">
       <span>{label}</span>
-      <select value={selectedOption} onChange={onChange}>
+      <select value={value[key]} onChange={onChange}>
+        <option selected disabled>
+          Please choose an option
+        </option>
         {Options}
       </select>
     </label>

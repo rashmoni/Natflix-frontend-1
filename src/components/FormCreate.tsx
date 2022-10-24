@@ -16,11 +16,16 @@ export default function FormUpdate({ endPoint, fields }: iProps) {
   const { setModal } = useModal();
 
   // Local state
+  // Debug - remove foo bar
   const [form, setForm] = useState({});
 
   // Methods
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
+    console.log("FormCreate.tsx onSubmit() form");
+    console.log(form);
+
     fakeFetch(endPoint + "create/", form)
       .then(onSuccess)
       .catch((error) => onFailure(error));
