@@ -42,3 +42,7 @@ img {
 .admin-pages .item-admin {
   margin-bottom: var(--space-medium);
 }
+
+.admin-pages .status {
+  height: 50vh;
+}
