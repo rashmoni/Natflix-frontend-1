@@ -20,7 +20,7 @@ export default function ItemCard({ item }: iProps) {
   return (
     <article onClick={() => setModal(Modal)} className="item-card">
       <img
-        src={thumbnail_url}
+        src={thumbnail_url ?? ""}
         onError={(event) => (event.currentTarget.src = Placeholder)}
       />
     </article>
