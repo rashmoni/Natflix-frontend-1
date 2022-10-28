@@ -13,9 +13,15 @@ export default function AdminRoutes() {
     <Routes>
       <Route path="*" element={<NotFound />} />
       <Route path="/" element={<Admin />} />
-      <Route path="/content/:code" element={<AdminContent />} />
-      <Route path="/details-other/:code" element={<AdminDetailsOther />} />
-      <Route path="/details-series/:code" element={<AdminDetailsSeries />} />
+      <Route path="/admin-content/:code" element={<AdminContent />} />
+      <Route
+        path="/admin-details-other/:code"
+        element={<AdminDetailsOther />}
+      />
+      <Route
+        path="/admin-details-series/:code"
+        element={<AdminDetailsSeries />}
+      />
     </Routes>
   );
 }

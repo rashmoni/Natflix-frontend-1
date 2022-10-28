@@ -9,7 +9,7 @@ import NotFound from "pages/NotFound";
 export default function UnloggedRoutes() {
   return (
     <Routes>
-      <Route path="*" element={<NotFound />} />
+      <Route path="*" element={<SignIn />} />
       <Route path="/" element={<SignIn />} />
       <Route path="/login" element={<SignIn />} />
       <Route path="/registration" element={<SignUp />} />
