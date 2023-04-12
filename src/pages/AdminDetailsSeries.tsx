@@ -14,8 +14,8 @@ import StatusEmpty from "components/StatusEmpty";
 import StatusError from "components/StatusError";
 import StatusLoading from "components/StatusLoading";
 import Fields from "data/fields-details-series.json";
-import eStatus from "interfaces/eStatus";
-import iDetailsSeries from "interfaces/iDetailsSeries";
+import eStatus from "types/eStatus";
+import iDetailsSeries from "types/iDetailsSeries";
 import ItemAdmin from "components/ItemAdminEpisode";
 import { useModal } from "state/ModalContext";
 

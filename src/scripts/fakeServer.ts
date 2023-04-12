@@ -8,10 +8,10 @@ import SingleMovie from "./fake-data/singleMovie.json";
 import SingleSerie from "./fake-data/singleSerie.json";
 
 // Project files
-import eContentType from "interfaces/eContentType";
-import iContent from "interfaces/iContent";
-import iDetailsOther from "interfaces/iDetailsOther";
-import iDetailsSeries from "interfaces/iDetailsSeries";
+import eContentType from "types/eContentType";
+import iContent from "types/iContent";
+import iDetailsOther from "types/iDetailsOther";
+import iDetailsSeries from "types/iDetailsSeries";
 
 export default function fakeServer(endPoint: string, data: any = null): any {
   switch (endPoint) {

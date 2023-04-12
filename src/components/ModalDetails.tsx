@@ -11,11 +11,11 @@ import HeroDetails from "components/HeroDetails";
 import StatusEmpty from "components/StatusEmpty";
 import StatusError from "components/StatusError";
 import StatusLoading from "components/StatusLoading";
-import eStatus from "interfaces/eStatus";
-import iContent from "interfaces/iContent";
-import eContentType from "interfaces/eContentType";
-import iDetailsOther from "interfaces/iDetailsOther";
-import iDetailsSeries from "interfaces/iDetailsSeries";
+import eStatus from "types/eStatus";
+import iContent from "types/iContent";
+import eContentType from "types/eContentType";
+import iDetailsOther from "types/iDetailsOther";
+import iDetailsSeries from "types/iDetailsSeries";
 import { useModal } from "state/ModalContext";
 
 interface iProps {

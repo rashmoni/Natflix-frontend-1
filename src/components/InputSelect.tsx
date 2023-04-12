@@ -2,7 +2,7 @@
 import { ChangeEvent, useEffect } from "react";
 
 // Project files
-import iInputSelect from "interfaces/iInputSelect";
+import iInputSelect from "types/iInputSelect";
 
 interface iProps {
   field: iInputSelect;

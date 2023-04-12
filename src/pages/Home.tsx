@@ -11,8 +11,8 @@ import NavigationBar from "components/NavigationBar";
 import StatusEmpty from "components/StatusEmpty";
 import StatusError from "components/StatusError";
 import StatusLoading from "components/StatusLoading";
-import eStatus from "interfaces/eStatus";
-import iContent from "interfaces/iContent";
+import eStatus from "types/eStatus";
+import iContent from "types/iContent";
 
 export default function Home() {
   // Local state

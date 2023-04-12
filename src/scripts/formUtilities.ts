@@ -1,6 +1,6 @@
-import iInputField from "interfaces/iInputField";
-import iInputImage from "interfaces/iInputImage";
-import iInputSelect from "interfaces/iInputSelect";
+import iInputField from "types/iInputField";
+import iInputImage from "types/iInputImage";
+import iInputSelect from "types/iInputSelect";
 
 interface DynamicObject {
   [key: string]: string | number | boolean;

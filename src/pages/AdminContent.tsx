@@ -15,9 +15,9 @@ import StatusEmpty from "components/StatusEmpty";
 import StatusError from "components/StatusError";
 import StatusLoading from "components/StatusLoading";
 import Fields from "data/fields-content.json";
-import eContentType from "interfaces/eContentType";
-import eStatus from "interfaces/eStatus";
-import iContent from "interfaces/iContent";
+import eContentType from "types/eContentType";
+import eStatus from "types/eStatus";
+import iContent from "types/iContent";
 import { useModal } from "state/ModalContext";
 
 export default function AdminContent() {

@@ -1,6 +1,6 @@
 // Project files
 import ItemCard from "components/ItemCard";
-import iContent from "interfaces/iContent";
+import iContent from "types/iContent";
 
 interface iProps {
   title: String;

@@ -1,5 +1,5 @@
 // Project files
-import iDetailsSeries from "interfaces/iDetailsSeries";
+import iDetailsSeries from "types/iDetailsSeries";
 
 export default class SeriesUtilities {
   public static getSeasonsNumber(episodes: iDetailsSeries[]): number {

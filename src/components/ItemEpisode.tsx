@@ -1,6 +1,6 @@
 // Project files
 import Placeholder from "assets/images/placeholders/card-basic.png";
-import iDetailsSeries from "interfaces/iDetailsSeries";
+import iDetailsSeries from "types/iDetailsSeries";
 
 interface iProps {
   item: iDetailsSeries;

@@ -2,7 +2,7 @@
 import { ChangeEvent } from "react";
 
 // Project files
-import iInputField from "interfaces/iInputField";
+import iInputField from "types/iInputField";
 
 interface iProps {
   field: iInputField;

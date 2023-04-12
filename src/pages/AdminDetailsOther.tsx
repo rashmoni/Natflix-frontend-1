@@ -11,7 +11,7 @@ import InputField from "components/InputField";
 import StatusError from "components/StatusError";
 import StatusLoading from "components/StatusLoading";
 import Fields from "data/fields-details-other.json";
-import eStatus from "interfaces/eStatus";
+import eStatus from "types/eStatus";
 
 export default function AdminDetailsOther() {
   // Global state
