@@ -7,7 +7,7 @@ import Admin from "pages/Admin";
 import AdminContent from "pages/AdminContent";
 import AdminDetailsOther from "pages/AdminDetailsOther";
 import AdminDetailsSeries from "pages/AdminDetailsSeries";
-import Content from "pages/Content"
+import Content from "pages/Content";
 import Home from "pages/Home";
 import NotFound from "pages/NotFound";
 import VideoPlayer from "pages/VideoPlayer";
@@ -25,8 +25,14 @@ export default function App() {
             <Route path="/content/:code" element={<Content />} />
             <Route path="/video/:code" element={<VideoPlayer />} />
             <Route path="/admin-content/:code" element={<AdminContent />} />
-            <Route path="/admin-details-other/:code" element={<AdminDetailsOther />} />
-            <Route path="/admin-details-series/:code" element={<AdminDetailsSeries />} />
+            <Route
+              path="/admin-details-other/:code"
+              element={<AdminDetailsOther />}
+            />
+            <Route
+              path="/admin-details-series/:code"
+              element={<AdminDetailsSeries />}
+            />
             <Route path="/admin" element={<Admin />} />
           </Routes>
           {/* To handle the modal/popups of the website */}
