@@ -28,7 +28,7 @@ export default function Content() {
 
   // Methods
   useEffect(() => {
-    setStatus(eStatus.LOADING);
+    setStatus(eStatus.LOADING); // to show the spiner when switching between media types
     fakeFetch(endPoint + code + "/")
       .then((response) => onSuccess(response.data))
       .catch((error) => onFailure(error));
