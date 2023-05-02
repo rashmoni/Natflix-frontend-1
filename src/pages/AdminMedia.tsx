@@ -85,7 +85,7 @@ export default function AdminContent() {
   if (status === eStatus.ERROR) return <StatusError />;
 
   return (
-    <div id="admin-content" className="admin-pages">
+    <div className="admin-pages">
       <NavigationBarAdmin />
       <header>
         <h1>Admin content</h1>
