@@ -1,10 +1,10 @@
 // Project files
 import ItemCard from "components/ItemCard";
-import iContent from "types/iMedia";
+import iMedia from "types/iMedia";
 
 interface iProps {
   title: String;
-  data: iContent[];
+  data: iMedia[];
 }
 
 export default function ListCards({ title, data }: iProps) {

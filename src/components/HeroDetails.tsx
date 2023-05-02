@@ -1,10 +1,10 @@
 // Project files
 import IconPlay from "assets/images/icons/icon-play-black.svg";
 import Placeholder from "assets/images/placeholders/banner.png";
-import iContent from "types/iMedia";
+import iMedia from "types/iMedia";
 
 interface iProps {
-  item: iContent;
+  item: iMedia;
   videoCode: string;
   onClick: Function;
 }

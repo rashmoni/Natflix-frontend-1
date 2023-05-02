@@ -1,13 +1,13 @@
 // Project files
-import iContent from "types/iMedia";
+import iMedia from "types/iMedia";
 import Placeholder from "assets/images/placeholders/card-basic.png";
 
 interface iProps {
-  item: iContent;
+  item: iMedia;
   actions: Function[];
 }
 
-export default function ItemAdminContent({ item, actions }: iProps) {
+export default function ItemAdminMedia({ item, actions }: iProps) {
   const { id, title, logo_url } = item;
   const [onUpdate, onDelete, onDetails] = actions;
 

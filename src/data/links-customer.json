@@ -7,16 +7,16 @@
   {
     "id": 1,
     "label": "Series",
-    "url": "/content/series"
+    "url": "/media/tv-series"
   },
   {
     "id": 2,
     "label": "Movies",
-    "url": "/content/movies"
+    "url": "/media/movies"
   },
   {
     "id": 3,
     "label": "Documentaries",
-    "url": "/content/documentaries"
+    "url": "/media/documentaries"
   }
 ]

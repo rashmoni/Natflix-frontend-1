@@ -1,11 +1,11 @@
 // Project files
 import Placeholder from "assets/images/placeholders/card-basic.png";
 import ModalDetails from "components/ModalDetails";
-import iContent from "types/iMedia";
+import iMedia from "types/iMedia";
 import { useModal } from "state/ModalContext";
 
 interface iProps {
-  item: iContent;
+  item: iMedia;
 }
 
 export default function ItemCard({ item }: iProps) {

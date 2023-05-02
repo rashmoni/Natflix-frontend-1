@@ -2,11 +2,11 @@
 import IconInfo from "assets/images/icons/icon-info-white.svg";
 import Placeholder from "assets/images/placeholders/banner.png";
 import ModalDetails from "components/ModalDetails";
-import iContent from "types/iMedia";
+import iMedia from "types/iMedia";
 import { useModal } from "state/ModalContext";
 
 interface iProps {
-  item: iContent;
+  item: iMedia;
 }
 
 export default function BannerHome({ item }: iProps) {

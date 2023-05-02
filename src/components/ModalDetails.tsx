@@ -12,14 +12,14 @@ import StatusEmpty from "components/StatusEmpty";
 import StatusError from "components/StatusError";
 import StatusLoading from "components/StatusLoading";
 import eStatus from "types/eStatus";
-import iContent from "types/iMedia";
-import eContentType from "types/eMediaType";
+import iMedia from "types/iMedia";
+import eMediaType from "types/eMediaType";
 import iDetailsOther from "types/iDetailsOther";
 import iDetailsSeries from "types/iDetailsSeries";
 import { useModal } from "state/ModalContext";
 
 interface iProps {
-  item: iContent;
+  item: iMedia;
 }
 
 export default function ModalDetails({ item }: iProps) {
@@ -35,7 +35,7 @@ export default function ModalDetails({ item }: iProps) {
   const [dataSerie, setDataSerie] = useState(Array<iDetailsSeries>);
 
   // Properties
-  const isASeries: boolean = type_id === eContentType.SERIES;
+  const isASeries: boolean = type_id === eMediaType.SERIES;
   const emptyOther: boolean = Object(dataOther).length === 0;
   const emptySeries: boolean = dataSerie.length === 0;
   const endPoint = isASeries ? "details-series/:id/" : "details-other/:id/";
