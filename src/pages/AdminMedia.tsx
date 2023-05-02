@@ -50,6 +50,7 @@ export default function AdminContent() {
     setStatus(eStatus.ERROR);
   }
 
+  // Refactor move this to ContextAPI with reducers
   function onCreate() {
     setModal(<FormCreate fields={Fields} endPoint={endPoint} />);
   }
