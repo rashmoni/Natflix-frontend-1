@@ -27,7 +27,7 @@ export default function AdminContent() {
   const [data, setData] = useState(new Array<iMedia>());
 
   // Properties
-  const endPoint: string = "content/";
+  const endPoint: string = "media/";
 
   // Methods
   useEffect(() => {

@@ -15,22 +15,22 @@ import iDetailsSeries from "types/iDetailsSeries";
 
 export default function fakeServer(endPoint: string, data: any = null): any {
   switch (endPoint) {
-    // Content
-    case "content/":
+    // Media
+    case "media/":
       return Content;
-    case "content/create/":
+    case "media/create/":
       return contentCreate(data);
-    case "content/delete/":
+    case "media/delete/":
       return contentDelete(data);
-    case "content/update/":
+    case "media/update/":
       return contentUpdate(data);
 
     // Content filtered
-    case "content/tv-series/":
+    case "media/tv-series/":
       return Series;
-    case "content/movies/":
+    case "media/movies/":
       return Movies;
-    case "content/documentaries/":
+    case "media/documentaries/":
       return Documentaries;
 
     // Movies

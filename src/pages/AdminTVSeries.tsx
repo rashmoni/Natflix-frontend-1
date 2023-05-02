@@ -7,16 +7,14 @@ import { useParams } from "react-router-dom";
 
 // Project files
 import FormCreate from "components/FormCreate";
-import FormDelete from "components/FormDelete";
-import FormUpdate from "components/FormUpdate";
 import NavigationBarAdmin from "components/NavigationBarAdmin";
 import StatusEmpty from "components/StatusEmpty";
 import StatusError from "components/StatusError";
 import StatusLoading from "components/StatusLoading";
-import Fields from "data/fields-details-series.json";
+import fields from "data/fields-details-series.json";
 import eStatus from "types/eStatus";
 import iDetailsSeries from "types/iDetailsSeries";
-import ItemAdmin from "components/ItemAdminEpisode";
+import Item from "components/ItemAdminEpisode";
 import { useModal } from "state/ModalContext";
 
 export default function AdminDetailSeries() {
@@ -29,7 +27,7 @@ export default function AdminDetailSeries() {
   const [data, setData] = useState(new Array<iDetailsSeries>());
 
   // Properties
-  const endPoint: string = "details-series/:id/";
+  const endPoint: string = "tv-series/:id/";
 
   // Methods
   useEffect(() => {
@@ -48,21 +46,10 @@ export default function AdminDetailSeries() {
     setStatus(eStatus.ERROR);
   }
 
-  function onCreate() {
-    setModal(<FormCreate fields={Fields} endPoint={endPoint} />);
-  }
-
-  function onUpdate(item: iDetailsSeries) {
-    setModal(<FormUpdate endPoint={endPoint} fields={Fields} data={item} />);
-  }
-
-  function onDelete(id: number) {
-    setModal(<FormDelete endPoint={endPoint} id={id} />);
-  }
-
   // Components
+  const Create = <FormCreate fields={fields} endPoint={endPoint} />;
   const Items = data.map((item) => (
-    <ItemAdmin key={item.id} item={item} actions={[onUpdate, onDelete]} />
+    <Item key={item.id} item={item} endPoint={endPoint} fields={fields} />
   ));
 
   // Safeguards
@@ -71,10 +58,11 @@ export default function AdminDetailSeries() {
 
   return (
     <div className="admin-pages">
-      <h1>Admin details</h1>
+      <NavigationBarAdmin />
+      <h1>TV Series episodes</h1>
       {data.length === 0 ? <StatusEmpty /> : Items}
       <hr />
-      <button className="primary" onClick={onCreate}>
+      <button className="primary" onClick={() => setModal(Create)}>
         Create episode
       </button>
     </div>
