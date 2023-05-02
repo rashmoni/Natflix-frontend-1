@@ -74,7 +74,9 @@ export default function AdminDetailSeries() {
       <h1>Admin details</h1>
       {data.length === 0 ? <StatusEmpty /> : Items}
       <hr />
-      <button onClick={onCreate}>Create episode</button>
+      <button className="primary" onClick={onCreate}>
+        Create episode
+      </button>
     </div>
   );
 }

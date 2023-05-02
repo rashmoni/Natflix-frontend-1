@@ -12,7 +12,7 @@ import NavigationBarAdmin from "components/NavigationBarAdmin";
 import StatusEmpty from "components/StatusEmpty";
 import StatusError from "components/StatusError";
 import StatusLoading from "components/StatusLoading";
-import Fields from "data/fields-content.json";
+import fields from "data/fields-media.json";
 import eStatus from "types/eStatus";
 import iMedia from "types/iMedia";
 import { useModal } from "state/ModalContext";
@@ -47,9 +47,9 @@ export default function AdminContent() {
   }
 
   // Components
-  const ModalCreate = <FormCreate fields={Fields} endPoint={endPoint} />;
-  const Items = data.map((item, index) => (
-    <Item key={item.id} index={index} item={item} />
+  const Create = <FormCreate fields={fields} endPoint={endPoint} />;
+  const Items = data.map((item) => (
+    <Item key={item.id} item={item} endPoint={endPoint} fields={fields} />
   ));
 
   // Safeguards
@@ -62,7 +62,9 @@ export default function AdminContent() {
       <h1>Edit {code}</h1>
       {data.length === 0 ? <StatusEmpty /> : Items}
       <hr />
-      <button onClick={() => setModal(ModalCreate)}>Create content</button>
+      <button className="primary" onClick={() => setModal(Create)}>
+        Create content
+      </button>
     </div>
   );
 }

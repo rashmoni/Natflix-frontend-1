@@ -2,17 +2,20 @@
 import { Link } from "react-router-dom";
 
 // Project files
+import Placeholder from "assets/images/placeholders/card-basic.png";
+import FormUpdate from "components/FormUpdate";
+import FormDelete from "components/FormDelete";
+import { useModal } from "state/ModalContext";
 import iMedia from "types/iMedia";
 import eMediaType from "types/eMediaType";
-import Placeholder from "assets/images/placeholders/card-basic.png";
-import { useModal } from "state/ModalContext";
 
 interface iProps {
-  index: number;
   item: iMedia;
+  endPoint: string;
+  fields: Array<any>;
 }
 
-export default function ItemAdminMedia({ index, item }: iProps) {
+export default function ItemAdminMedia({ item, endPoint, fields }: iProps) {
   const { id, type_id, title, thumbnail_url } = item;
 
   // Global
@@ -22,18 +25,21 @@ export default function ItemAdminMedia({ index, item }: iProps) {
   const Image = thumbnail_url === "" ? Placeholder : thumbnail_url;
 
   // Components
-  const ModalUpdate = <>update {title}</>;
-  const ModaDelete = <>delete {title}</>;
-  const TVSeriesEpisodes = <Link to={"/admin/tv-series/" + id} />;
+  const Update = <FormUpdate endPoint={endPoint} fields={fields} data={item} />;
+  const Delete = <FormDelete endPoint={endPoint} id={id} />;
+  const TVSeriesEpisodes = (
+    <Link className="button" to={"/admin-tv-series/" + id}>
+      Episodes
+    </Link>
+  );
 
   return (
     <article className="item-admin">
-      <span className="number">{index + 1}</span>
       <img src={Image} />
       <h3>{title}</h3>
       <div className="buttons">
-        <button onClick={() => setModal(ModalUpdate)}>Update</button>
-        <button onClick={() => setModal(ModaDelete)}>Delete</button>
+        <button onClick={() => setModal(Update)}>Update</button>
+        <button onClick={() => setModal(Delete)}>Delete</button>
         {type_id === eMediaType.SERIES && TVSeriesEpisodes}
       </div>
     </article>

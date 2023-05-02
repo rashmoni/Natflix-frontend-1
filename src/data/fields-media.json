@@ -11,7 +11,7 @@
     "key": "type_id",
     "autoFocus": false,
     "label": "Type of content",
-    "placeholder": "1 = series, 2 = movies, 3 = documentaries",
+    "placeholder": "Plase choose an option",
     "required": true,
     "type": "select",
     "options": ["Series", "Movies", "Documentaries"]
@@ -20,7 +20,7 @@
     "key": "category_id",
     "autoFocus": false,
     "label": "Type of category",
-    "placeholder": "1: horror, 2: action, 3: comedy, 4: drama, 5: other",
+    "placeholder": "Plase choose an option",
     "required": true,
     "type": "select",
     "options": ["Horror", "Action", "Comedy", "Drama", "Other"]
@@ -32,15 +32,6 @@
     "placeholder": "A time travel story of a boy and his mentor",
     "required": true,
     "type": "text"
-  },
-  {
-    "key": "logo_url",
-    "autoFocus": false,
-    "label": "Logo URL",
-    "placeholder": "www.google.com/logo.png",
-    "required": false,
-    "type": "image",
-    "imageWidth": 400
   },
   {
     "key": "banner_url",
