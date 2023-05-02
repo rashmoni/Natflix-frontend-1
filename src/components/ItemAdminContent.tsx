@@ -1,5 +1,5 @@
 // Project files
-import iContent from "types/iContent";
+import iContent from "types/iMedia";
 import Placeholder from "assets/images/placeholders/card-basic.png";
 
 interface iProps {

@@ -15,9 +15,9 @@ import StatusEmpty from "components/StatusEmpty";
 import StatusError from "components/StatusError";
 import StatusLoading from "components/StatusLoading";
 import Fields from "data/fields-content.json";
-import eContentType from "types/eContentType";
+import eContentType from "types/eMediaType";
 import eStatus from "types/eStatus";
-import iContent from "types/iContent";
+import iContent from "types/iMedia";
 import { useModal } from "state/ModalContext";
 
 export default function AdminContent() {
@@ -35,7 +35,6 @@ export default function AdminContent() {
 
   // Methods
   useEffect(() => {
-    setStatus(eStatus.LOADING);
     fakeFetch(endPoint + code + "/")
       .then((response) => onSuccess(response.data))
       .catch((error) => onFailure(error));

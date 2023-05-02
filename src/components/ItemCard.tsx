@@ -1,7 +1,7 @@
 // Project files
 import Placeholder from "assets/images/placeholders/card-basic.png";
 import ModalDetails from "components/ModalDetails";
-import iContent from "types/iContent";
+import iContent from "types/iMedia";
 import { useModal } from "state/ModalContext";
 
 interface iProps {

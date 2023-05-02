@@ -12,7 +12,7 @@ import StatusEmpty from "components/StatusEmpty";
 import StatusError from "components/StatusError";
 import StatusLoading from "components/StatusLoading";
 import eStatus from "types/eStatus";
-import iContent from "types/iContent";
+import iContent from "types/iMedia";
 import { useState, useEffect } from "react";
 
 export default function Content() {
@@ -28,7 +28,6 @@ export default function Content() {
 
   // Methods
   useEffect(() => {
-    setStatus(eStatus.LOADING); // to show the spiner when switching between media types
     fakeFetch(endPoint + code + "/")
       .then((response) => onSuccess(response.data))
       .catch((error) => onFailure(error));

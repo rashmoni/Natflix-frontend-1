@@ -2,14 +2,14 @@
 import Content from "./fake-data/content.json";
 import Documentaries from "./fake-data/documentaries.json";
 import Movies from "./fake-data/movies.json";
-import Series from "./fake-data/series.json";
+import Series from "./fake-data/tv-series.json";
 import SingleDocumentary from "./fake-data/singleDocumentary.json";
 import SingleMovie from "./fake-data/singleMovie.json";
-import SingleSerie from "./fake-data/singleSerie.json";
+import SingleSerie from "./fake-data/singleTVSerie.json";
 
 // Project files
-import eContentType from "types/eContentType";
-import iContent from "types/iContent";
+import eContentType from "types/eMediaType";
+import iContent from "types/iMedia";
 import iDetailsOther from "types/iDetailsOther";
 import iDetailsSeries from "types/iDetailsSeries";
 
@@ -26,27 +26,33 @@ export default function fakeServer(endPoint: string, data: any = null): any {
       return contentUpdate(data);
 
     // Content filtered
-    case "content/series/":
+    case "content/tv-series/":
       return Series;
     case "content/movies/":
       return Movies;
     case "content/documentaries/":
       return Documentaries;
 
-    // Details others
-    case "details-other/:id/":
+    // Movies
+    case "movies/:id/":
       return detailsOther(data);
-    case "details-other/:id/update/":
+    case "movies/:id/update/":
       return detailsOtherUpdate(data);
 
-    // Details series
-    case "details-series/:id/":
+    // Documentaries
+    case "documentaries/:id/":
+      return detailsOther(data);
+    case "documentaries/:id/update/":
+      return detailsOtherUpdate(data);
+
+    // TV Series
+    case "tv-series/:id/":
       return detailsSeries(data);
-    case "details-series/:id/create/":
+    case "tv-series/:id/create/":
       return detailsSeriesCreate(data);
-    case "details-series/:id/update/":
+    case "tv-series/:id/update/":
       return detailsSeriesUpdate(data);
-    case "details-series/:id/delete/":
+    case "tv-series/:id/delete/":
       return detailsSeriesDelete(data);
 
     // Exception
@@ -86,7 +92,7 @@ function detailsOtherUpdate(item: iDetailsOther): string {
   return `Update content details id ${item.id}`;
 }
 
-// Details series
+// Details tv-series
 function detailsSeries(id: number): iDetailsSeries[] {
   const content = Content.filter((item) => item.id === Number(id))[0];
 

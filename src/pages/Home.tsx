@@ -12,7 +12,7 @@ import StatusEmpty from "components/StatusEmpty";
 import StatusError from "components/StatusError";
 import StatusLoading from "components/StatusLoading";
 import eStatus from "types/eStatus";
-import iContent from "types/iContent";
+import iContent from "types/iMedia";
 
 export default function Home() {
   // Local state
