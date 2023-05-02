@@ -17,12 +17,8 @@ export default function Admin() {
   return (
     <div id="admin" className="admin-pages">
       <NavigationBar />
-      <header>
-        <h1>Admin main menu</h1>
-        <p>
-          Please choose one of the following options to start adding content:
-        </p>
-      </header>
+      <h1>Admin main menu</h1>
+      <p>Please choose one of the following options to start adding content:</p>
       <div className="items">{Links}</div>
     </div>
   );

@@ -51,9 +51,7 @@ export default function Content() {
   return (
     <div id="content">
       <NavigationBar />
-      <header>
-        <h1>All our {code}</h1>
-      </header>
+      <h1>All our {code}</h1>
       <ContainerCards title="Titles avaialble" data={data} />
     </div>
   );

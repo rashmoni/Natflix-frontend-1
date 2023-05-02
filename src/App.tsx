@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Modal from "components/Modal";
 import Admin from "pages/Admin";
 import AdminMedia from "pages/AdminMedia";
-import AdminTVSeries from "pages/AdminDetailsOther";
+import AdminTVSeries from "pages/AdminTVSeries";
 import Media from "pages/Media";
 import Home from "pages/Home";
 import NotFound from "pages/NotFound";
@@ -27,7 +27,6 @@ export default function App() {
             <Route path="/admin-tv-series/:code" element={<AdminTVSeries />} />
             <Route path="/admin" element={<Admin />} />
           </Routes>
-          {/* To handle the modal/popups of the website */}
           <Modal />
         </BrowserRouter>
       </ModalProvider>

@@ -13,28 +13,28 @@ interface iProps {
 }
 
 export default function ItemAdminMedia({ index, item }: iProps) {
-  const { id, type_id, title, logo_url } = item;
+  const { id, type_id, title, thumbnail_url } = item;
 
   // Global
   const { setModal } = useModal();
 
+  // Properties
+  const Image = thumbnail_url === "" ? Placeholder : thumbnail_url;
+
   // Components
   const ModalUpdate = <>update {title}</>;
   const ModaDelete = <>delete {title}</>;
-  const LinkTVSeriesEpisode = <Link to={"/admin/tv-series/" + id} />;
+  const TVSeriesEpisodes = <Link to={"/admin/tv-series/" + id} />;
 
   return (
     <article className="item-admin">
       <span className="number">{index + 1}</span>
-      <img
-        src={logo_url}
-        onError={(event) => (event.currentTarget.src = Placeholder)}
-      />
+      <img src={Image} />
       <h3>{title}</h3>
       <div className="buttons">
         <button onClick={() => setModal(ModalUpdate)}>Update</button>
         <button onClick={() => setModal(ModaDelete)}>Delete</button>
-        {type_id === eMediaType.SERIES && LinkTVSeriesEpisode}
+        {type_id === eMediaType.SERIES && TVSeriesEpisodes}
       </div>
     </article>
   );

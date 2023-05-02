@@ -70,11 +70,8 @@ export default function AdminDetailSeries() {
   if (status === eStatus.ERROR) return <StatusError />;
 
   return (
-    <div id="admin-detail-series" className="admin-pages">
-      <NavigationBarAdmin />
-      <header>
-        <h1>Admin details</h1>
-      </header>
+    <div className="admin-pages">
+      <h1>Admin details</h1>
       {data.length === 0 ? <StatusEmpty /> : Items}
       <hr />
       <button onClick={onCreate}>Create episode</button>

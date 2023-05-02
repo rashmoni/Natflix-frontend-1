@@ -59,9 +59,7 @@ export default function AdminContent() {
   return (
     <div className="admin-pages">
       <NavigationBarAdmin />
-      <header>
-        <h1>Admin content</h1>
-      </header>
+      <h1>Edit {code}</h1>
       {data.length === 0 ? <StatusEmpty /> : Items}
       <hr />
       <button onClick={() => setModal(ModalCreate)}>Create content</button>
