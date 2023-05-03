@@ -15,8 +15,10 @@ button,
   border: none;
   border-radius: var(--radius);
   cursor: pointer;
+}
 
-  /* Rules to make the <Link> look like a button */
+/* Rules to make the <Link> look like a button */
+.button {
   line-height: 44px;
   text-align: center;
   vertical-align: top;

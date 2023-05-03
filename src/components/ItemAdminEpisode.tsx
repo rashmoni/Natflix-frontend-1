@@ -31,7 +31,7 @@ export default function ItemAdminEpisode({ item, endPoint, fields }: iProps) {
       <div className="season-episode">
         <span className="title">Season & Episode</span>
         <span className="numbers">
-          {season_number} - {episode_number}
+          S{season_number}-E{episode_number}
         </span>
       </div>
       <div className="buttons">
