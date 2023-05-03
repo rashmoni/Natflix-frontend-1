@@ -1,9 +1,9 @@
 // Project files
 import Placeholder from "assets/images/placeholders/card-basic.png";
-import iDetailsSeries from "types/iDetailsSeries";
+import iTVSeries from "types/iTVSeries";
 
 interface iProps {
-  item: iDetailsSeries;
+  item: iTVSeries;
   onClick: Function;
 }
 

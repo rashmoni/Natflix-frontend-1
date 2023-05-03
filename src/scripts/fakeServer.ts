@@ -11,7 +11,7 @@ import SingleSerie from "./fake-data/single-tv-series.json";
 import eMediaType from "types/eMediaType";
 import iMedia from "types/iMedia";
 import iDetailsOther from "types/iDetailsOther";
-import iDetailsSeries from "types/iDetailsSeries";
+import iTVSeries from "types/iTVSeries";
 
 export default function fakeServer(endPoint: string, data: any = null): any {
   switch (endPoint) {
@@ -93,7 +93,7 @@ function detailsOtherUpdate(item: iDetailsOther): string {
 }
 
 // Details tv-series
-function detailsSeries(id: number): iDetailsSeries[] {
+function detailsSeries(id: number): iTVSeries[] {
   const media = Media.filter((item) => item.id === Number(id))[0];
 
   switch (media.media_type_id) {
@@ -104,11 +104,11 @@ function detailsSeries(id: number): iDetailsSeries[] {
   }
 }
 
-function detailsSeriesCreate(item: iDetailsSeries) {
+function detailsSeriesCreate(item: iTVSeries) {
   return `Created new episode ${item.title}`;
 }
 
-function detailsSeriesUpdate(item: iDetailsSeries) {
+function detailsSeriesUpdate(item: iTVSeries) {
   return `Update episode ${item.title}`;
 }
 

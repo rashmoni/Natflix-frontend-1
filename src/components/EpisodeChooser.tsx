@@ -4,12 +4,12 @@ import { ChangeEvent, useState } from "react";
 // Project files
 import ItemEpisodes from "components/ItemEpisode";
 import InputSelect from "components/InputSelect";
-import iDetailsSeries from "types/iDetailsSeries";
+import iTVSeries from "types/iTVSeries";
 import SeriesUtilities from "scripts/seriesUtilities";
 import iInputSelect from "types/iInputSelect";
 
 interface iProps {
-  episodes: iDetailsSeries[];
+  episodes: iTVSeries[];
   onClick: Function;
 }
 

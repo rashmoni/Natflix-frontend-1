@@ -3,10 +3,10 @@ import Placeholder from "assets/images/placeholders/card-basic.png";
 import FormUpdate from "components/FormUpdate";
 import FormDelete from "components/FormDelete";
 import { useModal } from "state/ModalContext";
-import iDetailsSeries from "types/iDetailsSeries";
+import iTVSeries from "types/iTVSeries";
 
 interface iProps {
-  item: iDetailsSeries;
+  item: iTVSeries;
   endPoint: string;
   fields: Array<any>;
 }

@@ -15,7 +15,7 @@ import eStatus from "types/eStatus";
 import iMedia from "types/iMedia";
 import eMediaType from "types/eMediaType";
 import iDetailsOther from "types/iDetailsOther";
-import iDetailsSeries from "types/iDetailsSeries";
+import iTVSeries from "types/iTVSeries";
 import { useModal } from "state/ModalContext";
 
 interface iProps {
@@ -32,7 +32,7 @@ export default function ModalDetails({ item }: iProps) {
   // Local state
   const [status, setStatus] = useState(eStatus.LOADING);
   const [dataOther, setDataOther] = useState({} as iDetailsOther);
-  const [dataSerie, setDataSerie] = useState(Array<iDetailsSeries>);
+  const [dataSerie, setDataSerie] = useState(Array<iTVSeries>);
 
   // Properties
   const isASeries: boolean = type_id === eMediaType.SERIES;

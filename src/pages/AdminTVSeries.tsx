@@ -11,9 +11,9 @@ import NavigationBarAdmin from "components/NavigationBarAdmin";
 import StatusEmpty from "components/StatusEmpty";
 import StatusError from "components/StatusError";
 import StatusLoading from "components/StatusLoading";
-import fields from "data/fields-details-series.json";
+import fields from "data/fields-tv-series.json";
 import eStatus from "types/eStatus";
-import iDetailsSeries from "types/iDetailsSeries";
+import iTVSeries from "types/iTVSeries";
 import Item from "components/ItemAdminEpisode";
 import { useModal } from "state/ModalContext";
 
@@ -24,7 +24,7 @@ export default function AdminDetailSeries() {
 
   // Local state
   const [status, setStatus] = useState(eStatus.LOADING);
-  const [data, setData] = useState(new Array<iDetailsSeries>());
+  const [data, setData] = useState(new Array<iTVSeries>());
 
   // Properties
   const endPoint: string = "tv-series/:id/";
@@ -36,7 +36,7 @@ export default function AdminDetailSeries() {
       .catch((error) => onFailure(error));
   }, []);
 
-  function onSuccess(data: iDetailsSeries[]) {
+  function onSuccess(data: iTVSeries[]) {
     setData(data);
     setStatus(eStatus.READY);
   }
