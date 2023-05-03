@@ -6,7 +6,7 @@
  */
 export default interface iDetailsSeries {
   id: number;
-  content_id: number;
+  media_id: number;
   season_number: number;
   episode_number: number;
   title: string;

@@ -17,7 +17,7 @@ import eStatus from "types/eStatus";
 import iMedia from "types/iMedia";
 import { useModal } from "state/ModalContext";
 
-export default function AdminContent() {
+export default function AdminMedia() {
   // Global state
   const { code } = useParams();
   const { setModal } = useModal();

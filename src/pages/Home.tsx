@@ -21,9 +21,9 @@ export default function Home() {
 
   // Properties
   const endPoint = "media/";
-  const tvSeries = data.filter((item) => item.type_id === 1);
-  const movies = data.filter((item) => item.type_id === 2);
-  const documentaries = data.filter((item) => item.type_id === 3);
+  const tvSeries = data.filter((item) => item.media_type_id === 1);
+  const movies = data.filter((item) => item.media_type_id === 2);
+  const documentaries = data.filter((item) => item.media_type_id === 3);
   const firstItemToShow = tvSeries[0];
 
   // Methods

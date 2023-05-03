@@ -16,7 +16,7 @@ interface iProps {
 }
 
 export default function ItemAdminMedia({ item, endPoint, fields }: iProps) {
-  const { id, type_id, title, thumbnail_url } = item;
+  const { id, media_type_id: type_id, title, thumbnail_url } = item;
 
   // Global
   const { setModal } = useModal();

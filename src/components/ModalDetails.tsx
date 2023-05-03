@@ -23,7 +23,7 @@ interface iProps {
 }
 
 export default function ModalDetails({ item }: iProps) {
-  const { id, type_id, title, summary } = item;
+  const { id, media_type_id: type_id, title, summary } = item;
 
   // Global state
   const navigate = useNavigate();

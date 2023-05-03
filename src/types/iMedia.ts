@@ -1,8 +1,8 @@
-export default interface iContent {
+export default interface iMedia {
   id: number;
   title: string;
-  type_id: number;
-  category_id: number;
+  media_type_id: number;
+  genre_id: number;
   summary: string;
   logo_url: string;
   banner_url: string;

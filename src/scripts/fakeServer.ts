@@ -1,11 +1,11 @@
 // Fake data
-import Content from "./fake-data/content.json";
+import Media from "./fake-data/media.json";
 import Documentaries from "./fake-data/documentaries.json";
 import Movies from "./fake-data/movies.json";
 import Series from "./fake-data/tv-series.json";
-import SingleDocumentary from "./fake-data/singleDocumentary.json";
-import SingleMovie from "./fake-data/singleMovie.json";
-import SingleSerie from "./fake-data/singleTVSerie.json";
+import SingleDocumentary from "./fake-data/single-documentary.json";
+import SingleMovie from "./fake-data/single-movie.json";
+import SingleSerie from "./fake-data/single-tv-series.json";
 
 // Project files
 import eMediaType from "types/eMediaType";
@@ -17,15 +17,15 @@ export default function fakeServer(endPoint: string, data: any = null): any {
   switch (endPoint) {
     // Media
     case "media/":
-      return Content;
+      return Media;
     case "media/create/":
-      return contentCreate(data);
+      return mediaCreate(data);
     case "media/delete/":
-      return contentDelete(data);
+      return mediaDelete(data);
     case "media/update/":
-      return contentUpdate(data);
+      return mediaUpdate(data);
 
-    // Content filtered
+    // Media filtered
     case "media/tv-series/":
       return Series;
     case "media/movies/":
@@ -61,24 +61,24 @@ export default function fakeServer(endPoint: string, data: any = null): any {
   }
 }
 
-// Content
-function contentCreate(item: iMedia): string {
-  return `Created new content ${item.title}`;
+// Media
+function mediaCreate(item: iMedia): string {
+  return `Created new media ${item.title}`;
 }
 
-function contentUpdate(item: iMedia): string {
-  return `Updated content ${item.title}`;
+function mediaUpdate(item: iMedia): string {
+  return `Updated media ${item.title}`;
 }
 
-function contentDelete(id: number): string {
-  return `Deleted content with id ${id}`;
+function mediaDelete(id: number): string {
+  return `Deleted media with id ${id}`;
 }
 
 // Details other
 function detailsOther(id: number): iDetailsOther {
-  const content = Content.filter((item) => item.id === Number(id))[0];
+  const media = Media.filter((item) => item.id === Number(id))[0];
 
-  switch (content.type_id) {
+  switch (media.media_type_id) {
     case eMediaType.MOVIES:
       return SingleMovie;
     case eMediaType.DOCUMENTARIES:
@@ -89,14 +89,14 @@ function detailsOther(id: number): iDetailsOther {
 }
 
 function detailsOtherUpdate(item: iDetailsOther): string {
-  return `Update content details id ${item.id}`;
+  return `Update media details id ${item.id}`;
 }
 
 // Details tv-series
 function detailsSeries(id: number): iDetailsSeries[] {
-  const content = Content.filter((item) => item.id === Number(id))[0];
+  const media = Media.filter((item) => item.id === Number(id))[0];
 
-  switch (content.type_id) {
+  switch (media.media_type_id) {
     case eMediaType.SERIES:
       return SingleSerie;
     default:

@@ -4,6 +4,6 @@
  */
 export default interface iDetailsOther {
   id: number;
-  content_id: number;
+  media_id: number;
   video_code: string;
 }
