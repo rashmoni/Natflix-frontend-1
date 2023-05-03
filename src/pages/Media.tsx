@@ -5,7 +5,7 @@ import fakeFetch from "scripts/fakeFetch";
 import { useParams } from "react-router-dom";
 
 // Project files
-import BannerHome from "components/HeroHome";
+import HeroHome from "components/HeroHome";
 import ContainerCards from "components/ListCards";
 import NavigationBar from "components/NavigationBar";
 import StatusEmpty from "components/StatusEmpty";

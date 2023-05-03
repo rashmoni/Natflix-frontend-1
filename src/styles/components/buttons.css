@@ -28,13 +28,6 @@ button:hover,
   text-decoration: none;
 }
 
-button.icon,
-.button.icon {
-  height: 16px;
-  margin-right: var(--space-small);
-  vertical-align: text-bottom; /* to align with the text */
-}
-
 button.primary,
 .button.primary {
   background-color: var(--color-netflix-red);
@@ -43,4 +36,11 @@ button.primary,
 .button-white {
   background-color: white;
   color: black;
+}
+
+button .icon,
+.button .icon {
+  height: 16px;
+  margin-right: var(--space-small);
+  vertical-align: text-bottom; /* to align with the text */
 }

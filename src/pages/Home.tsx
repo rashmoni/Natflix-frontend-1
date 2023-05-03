@@ -5,7 +5,7 @@ import fakeFetch from "scripts/fakeFetch";
 import { useEffect, useState } from "react";
 
 // Project files
-import BannerHome from "components/HeroHome";
+import HeroHome from "components/HeroHome";
 import ContainerCards from "components/ListCards";
 import NavigationBar from "components/NavigationBar";
 import StatusEmpty from "components/StatusEmpty";
@@ -20,10 +20,11 @@ export default function Home() {
   const [data, setData] = useState(new Array<iContent>());
 
   // Properties
-  const endPoint = "content/";
-  const series = data.filter((item) => item.type_id === 1);
+  const endPoint = "media/";
+  const tvSeries = data.filter((item) => item.type_id === 1);
   const movies = data.filter((item) => item.type_id === 2);
   const documentaries = data.filter((item) => item.type_id === 3);
+  const firstItemToShow = tvSeries[0];
 
   // Methods
   useEffect(() => {
@@ -50,8 +51,8 @@ export default function Home() {
   return (
     <div id="home">
       <NavigationBar />
-      <BannerHome item={data[0]} />
-      <ContainerCards title="Series" data={series} />
+      <HeroHome item={firstItemToShow} />
+      <ContainerCards title="Series" data={tvSeries} />
       <ContainerCards title="Movies" data={movies} />
       <ContainerCards title="Documentaries" data={documentaries} />
     </div>

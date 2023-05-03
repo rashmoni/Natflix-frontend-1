@@ -9,7 +9,7 @@ interface iProps {
   item: iMedia;
 }
 
-export default function BannerHome({ item }: iProps) {
+export default function HeroHome({ item }: iProps) {
   const { banner_url, logo_url, title, summary } = item;
 
   // Global state
@@ -30,7 +30,7 @@ export default function BannerHome({ item }: iProps) {
       <div className="content">
         {logo_url === "" ? Heading : Logo}
         <p>{summary}</p>
-        <button onClick={() => setModal(Modal)} className="button-gray">
+        <button onClick={() => setModal(Modal)}>
           <img className="icon" src={IconInfo} />
           More info
         </button>
