@@ -14,7 +14,9 @@ export default function ListCards({ title, data }: iProps) {
   return (
     <section className="list-cards">
       <h2>{title}</h2>
-      <div className="container">{Cards}</div>
+      <div className="scroller">
+        <div className="container">{Cards}</div>
+      </div>
     </section>
   );
 }

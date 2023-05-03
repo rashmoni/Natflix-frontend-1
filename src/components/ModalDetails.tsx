@@ -23,7 +23,7 @@ interface iProps {
 }
 
 export default function ModalDetails({ item }: iProps) {
-  const { id, media_type_id } = item;
+  const { id, title, summary, media_type_id } = item;
 
   // Global state
   const navigate = useNavigate();
@@ -84,6 +84,10 @@ export default function ModalDetails({ item }: iProps) {
   return (
     <div className="modal-details">
       <HeroDetails item={item} videoCode={videoCode} onClick={goVideo} />
+      <section className="description">
+        <h2>{title}</h2>
+        <p>{summary}</p>
+      </section>
       {isASeries && <EpisodeChooser episodes={dataSerie} onClick={goVideo} />}
     </div>
   );
