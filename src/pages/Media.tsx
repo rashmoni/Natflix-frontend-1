@@ -12,19 +12,19 @@ import StatusEmpty from "components/StatusEmpty";
 import StatusError from "components/StatusError";
 import StatusLoading from "components/StatusLoading";
 import eStatus from "types/eStatus";
-import iContent from "types/iMedia";
+import iMedia from "types/iMedia";
 import { useState, useEffect } from "react";
 
-export default function Content() {
+export default function Media() {
   // Global state
   const { code } = useParams();
 
   // Local state
   const [status, setStatus] = useState(eStatus.LOADING);
-  const [data, setData] = useState(new Array<iContent>());
+  const [data, setData] = useState(new Array<iMedia>());
 
   // Properties
-  const endPoint = "content/";
+  const endPoint = "media/";
 
   // Methods
   useEffect(() => {
@@ -33,7 +33,7 @@ export default function Content() {
       .catch((error) => onFailure(error));
   }, [code]);
 
-  function onSuccess(data: iContent[]) {
+  function onSuccess(data: iMedia[]) {
     setData(data);
     setStatus(eStatus.READY);
   }
@@ -49,7 +49,7 @@ export default function Content() {
   if (data.length === 0) return <StatusEmpty />;
 
   return (
-    <div id="content">
+    <div id="media">
       <NavigationBar />
       <h1>All our {code}</h1>
       <ContainerCards title="Titles avaialble" data={data} />

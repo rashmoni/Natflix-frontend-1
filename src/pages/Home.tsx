@@ -12,12 +12,12 @@ import StatusEmpty from "components/StatusEmpty";
 import StatusError from "components/StatusError";
 import StatusLoading from "components/StatusLoading";
 import eStatus from "types/eStatus";
-import iContent from "types/iMedia";
+import iMedia from "types/iMedia";
 
 export default function Home() {
   // Local state
   const [status, setStatus] = useState(eStatus.LOADING);
-  const [data, setData] = useState(new Array<iContent>());
+  const [data, setData] = useState(new Array<iMedia>());
 
   // Properties
   const endPoint = "media/";
@@ -33,7 +33,7 @@ export default function Home() {
       .catch((error) => onFailure(error));
   }, []);
 
-  function onSuccess(data: iContent[]) {
+  function onSuccess(data: iMedia[]) {
     setData(data);
     setStatus(eStatus.READY);
   }

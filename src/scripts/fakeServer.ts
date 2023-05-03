@@ -8,8 +8,8 @@ import SingleMovie from "./fake-data/singleMovie.json";
 import SingleSerie from "./fake-data/singleTVSerie.json";
 
 // Project files
-import eContentType from "types/eMediaType";
-import iContent from "types/iMedia";
+import eMediaType from "types/eMediaType";
+import iMedia from "types/iMedia";
 import iDetailsOther from "types/iDetailsOther";
 import iDetailsSeries from "types/iDetailsSeries";
 
@@ -62,11 +62,11 @@ export default function fakeServer(endPoint: string, data: any = null): any {
 }
 
 // Content
-function contentCreate(item: iContent): string {
+function contentCreate(item: iMedia): string {
   return `Created new content ${item.title}`;
 }
 
-function contentUpdate(item: iContent): string {
+function contentUpdate(item: iMedia): string {
   return `Updated content ${item.title}`;
 }
 
@@ -79,9 +79,9 @@ function detailsOther(id: number): iDetailsOther {
   const content = Content.filter((item) => item.id === Number(id))[0];
 
   switch (content.type_id) {
-    case eContentType.MOVIES:
+    case eMediaType.MOVIES:
       return SingleMovie;
-    case eContentType.DOCUMENTARIES:
+    case eMediaType.DOCUMENTARIES:
       return SingleDocumentary;
     default:
       throw new Error(`Invalid type id ${id}`);
@@ -97,7 +97,7 @@ function detailsSeries(id: number): iDetailsSeries[] {
   const content = Content.filter((item) => item.id === Number(id))[0];
 
   switch (content.type_id) {
-    case eContentType.SERIES:
+    case eMediaType.SERIES:
       return SingleSerie;
     default:
       throw new Error(`Invalid type id ${id}`);

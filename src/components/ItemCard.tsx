@@ -14,15 +14,15 @@ export default function ItemCard({ item }: iProps) {
   // Global state
   const { setModal } = useModal();
 
+  // Properties
+  const Image = thumbnail_url === "" ? Placeholder : thumbnail_url;
+
   // Components
   const Modal = <ModalDetails item={item} />;
 
   return (
-    <article onClick={() => setModal(Modal)} className="item-card">
-      <img
-        src={thumbnail_url ?? ""}
-        onError={(event) => (event.currentTarget.src = Placeholder)}
-      />
+    <article className="item-card" onClick={() => setModal(Modal)}>
+      <img src={Image} />
     </article>
   );
 }

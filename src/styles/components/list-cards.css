@@ -1,0 +1,20 @@
+.list-cards {
+  margin-bottom: var(--space-big);
+  padding: 0 var(--page-space);
+}
+
+.list-cards .container {
+  display: flex;
+  overflow-x: scroll;
+  gap: var(--space-medium);
+}
+
+/* Remove scrollbar space */
+.list-cards .container::-webkit-scrollbar {
+  display: none;
+}
+
+.item-card {
+  flex-grow: 0;
+  flex-shrink: 0;
+}

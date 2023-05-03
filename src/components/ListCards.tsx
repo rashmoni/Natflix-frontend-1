@@ -12,9 +12,9 @@ export default function ListCards({ title, data }: iProps) {
   const Cards = data.map((item) => <ItemCard key={item.id} item={item} />);
 
   return (
-    <section className="card-list">
+    <section className="list-cards">
       <h2>{title}</h2>
-      <div>{Cards}</div>
+      <div className="container">{Cards}</div>
     </section>
   );
 }
