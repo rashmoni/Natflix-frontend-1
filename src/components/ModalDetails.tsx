@@ -11,19 +11,19 @@ import HeroDetails from "components/HeroDetails";
 import StatusEmpty from "components/StatusEmpty";
 import StatusError from "components/StatusError";
 import StatusLoading from "components/StatusLoading";
+import { useModal } from "state/ModalContext";
 import eStatus from "types/eStatus";
 import iMedia from "types/iMedia";
 import eMediaType from "types/eMediaType";
 import iDetailsOther from "types/iDetailsOther";
 import iTVSeries from "types/iTVSeries";
-import { useModal } from "state/ModalContext";
 
 interface iProps {
   item: iMedia;
 }
 
 export default function ModalDetails({ item }: iProps) {
-  const { id, media_type_id: type_id, title, summary } = item;
+  const { id, media_type_id, title, summary } = item;
 
   // Global state
   const navigate = useNavigate();
@@ -35,10 +35,10 @@ export default function ModalDetails({ item }: iProps) {
   const [dataSerie, setDataSerie] = useState(Array<iTVSeries>);
 
   // Properties
-  const isASeries: boolean = type_id === eMediaType.SERIES;
+  const isASeries: boolean = media_type_id === eMediaType.SERIES;
   const emptyOther: boolean = Object(dataOther).length === 0;
   const emptySeries: boolean = dataSerie.length === 0;
-  const endPoint = isASeries ? "details-series/:id/" : "details-other/:id/";
+  const endPoint = chooseEndPoint(media_type_id);
   const videoCode = isASeries ? dataSerie[0]?.video_code : dataOther.video_code;
 
   // Methods
@@ -58,7 +58,20 @@ export default function ModalDetails({ item }: iProps) {
     setStatus(eStatus.ERROR);
   }
 
-  function onClick(videoCode: string): void {
+  function chooseEndPoint(media_type_id: number) {
+    switch (media_type_id) {
+      case eMediaType.MOVIES:
+        return "movies/:id/";
+      case eMediaType.DOCUMENTARIES:
+        return "documentaries/:id/";
+      case eMediaType.SERIES:
+        return "tv-series/:id/";
+      default:
+        throw new Error(`Invalid media type id ${media_type_id}`);
+    }
+  }
+
+  function goVideo(videoCode: string): void {
     navigate(`video/${videoCode}`);
     setModal(null);
   }
@@ -70,12 +83,12 @@ export default function ModalDetails({ item }: iProps) {
 
   return (
     <div className="modal-details">
-      <HeroDetails item={item} videoCode={videoCode} onClick={onClick} />
+      <HeroDetails item={item} videoCode={videoCode} onClick={goVideo} />
       <section className="description">
         <h2>{title}</h2>
         <p>{summary}</p>
       </section>
-      {isASeries && <EpisodeChooser episodes={dataSerie} onClick={onClick} />}
+      {isASeries && <EpisodeChooser episodes={dataSerie} onClick={goVideo} />}
     </div>
   );
 }
