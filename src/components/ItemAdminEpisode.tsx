@@ -12,7 +12,7 @@ interface iProps {
 }
 
 export default function ItemAdminEpisode({ item, endPoint, fields }: iProps) {
-  const { id, title, thumbnail_url } = item;
+  const { id, title, season_number, episode_number, thumbnail_url } = item;
 
   // Global
   const { setModal } = useModal();
@@ -28,9 +28,12 @@ export default function ItemAdminEpisode({ item, endPoint, fields }: iProps) {
     <article className="item-admin">
       <img src={Image} />
       <h3>{title}</h3>
-      {/* Refactor to add Season & Episode */}
-      <span>&nbsp; - &nbsp;</span>
-      <span className="number">{id}</span>
+      <div className="season-episode">
+        <span className="title">Season & Episode</span>
+        <span className="numbers">
+          {season_number} - {episode_number}
+        </span>
+      </div>
       <div className="buttons">
         <button onClick={() => setModal(Update)}>Update</button>
         <button onClick={() => setModal(Delete)}>Delete</button>

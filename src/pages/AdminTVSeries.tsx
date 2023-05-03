@@ -11,7 +11,7 @@ import NavigationBarAdmin from "components/NavigationBarAdmin";
 import StatusEmpty from "components/StatusEmpty";
 import StatusError from "components/StatusError";
 import StatusLoading from "components/StatusLoading";
-import fields from "data/fields-tv-series.json";
+import fields from "data/fields-tv-series-episodes.json";
 import eStatus from "types/eStatus";
 import iTVSeries from "types/iTVSeries";
 import Item from "components/ItemAdminEpisode";
