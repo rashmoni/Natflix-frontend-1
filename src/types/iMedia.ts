@@ -4,7 +4,6 @@ export default interface iMedia {
   media_type_id: number;
   genre_id: number;
   summary: string;
-  logo_url: string;
   banner_url: string;
   thumbnail_url: string;
 }

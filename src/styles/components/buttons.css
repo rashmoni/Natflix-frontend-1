@@ -33,11 +33,13 @@ button.primary,
   background-color: var(--color-netflix-red);
 }
 
-.button-white {
+button.white,
+.button.white {
   background-color: white;
   color: black;
 }
 
+/* Icon inside the button */
 button .icon,
 .button .icon {
   height: 16px;
