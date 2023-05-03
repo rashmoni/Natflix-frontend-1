@@ -5,7 +5,7 @@ import { ChangeEvent, useState } from "react";
 import ItemEpisodes from "components/ItemEpisode";
 import InputSelect from "components/InputSelect";
 import iTVSeries from "types/iTVSeries";
-import SeriesUtilities from "scripts/seriesUtilities";
+import Utilities from "scripts/seriesUtilities";
 import iInputSelect from "types/iInputSelect";
 
 interface iProps {
@@ -18,12 +18,9 @@ export default function EpisodeChooser({ episodes, onClick }: iProps) {
   const [data, setData] = useState({ season_number: 1 });
 
   // Properties
-  const numberOfSeasons = SeriesUtilities.getSeasonsNumber(episodes);
-  const currentEpisodes = SeriesUtilities.getEpisodes(
-    episodes,
-    data.season_number
-  );
-  const inputSelectLabels = SeriesUtilities.getSeasonLabels(numberOfSeasons);
+  const numberOfSeasons = Utilities.getSeasonsNumber(episodes);
+  const currentEpisodes = Utilities.getEpisodes(episodes, data.season_number);
+  const inputSelectLabels = Utilities.getSeasonLabels(numberOfSeasons);
   const fields: iInputSelect = {
     key: "season_number",
     label: "",
