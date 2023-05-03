@@ -25,6 +25,22 @@
     "options": ["Horror", "Action", "Comedy", "Drama", "Other"]
   },
   {
+    "key": "director",
+    "autoFocus": false,
+    "label": "Director",
+    "placeholder": "Steven Spielberg",
+    "required": true,
+    "type": "text"
+  },
+  {
+    "key": "rating",
+    "autoFocus": false,
+    "label": "Rotten tomatoes rating (0-100)",
+    "placeholder": "85",
+    "required": true,
+    "type": "number"
+  },
+  {
     "key": "banner_url",
     "autoFocus": false,
     "label": "Banner URL",

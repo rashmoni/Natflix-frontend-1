@@ -12,7 +12,9 @@ import NavigationBarAdmin from "components/NavigationBarAdmin";
 import StatusEmpty from "components/StatusEmpty";
 import StatusError from "components/StatusError";
 import StatusLoading from "components/StatusLoading";
-import fields from "data/fields-media.json";
+import FieldsDocumentaries from "data/fields-documentaries.json";
+import FieldsMovies from "data/fields-movies.json";
+import FieldsTVSeries from "data/fields-tv-series.json";
 import eStatus from "types/eStatus";
 import iMedia from "types/iMedia";
 import { useModal } from "state/ModalContext";
@@ -28,6 +30,7 @@ export default function AdminMedia() {
 
   // Properties
   const endPoint: string = "media/";
+  const fields = chooseFields(code);
 
   // Methods
   useEffect(() => {
@@ -44,6 +47,19 @@ export default function AdminMedia() {
   function onFailure(error: string) {
     console.error(error);
     setStatus(eStatus.ERROR);
+  }
+
+  function chooseFields(code: string | undefined) {
+    switch (code) {
+      case "tv-series":
+        return FieldsTVSeries;
+      case "documentaries":
+        return FieldsDocumentaries;
+      case "movies":
+        return FieldsMovies;
+      default:
+        throw new Error(`Invalid code: ${code}`);
+    }
   }
 
   // Components
