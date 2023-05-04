@@ -2,7 +2,7 @@
 import { Routes, Route } from "react-router-dom";
 
 // Project files
-import Content from "pages/Content";
+import Media from "pages/Media";
 import Home from "pages/Home";
 import NotFound from "pages/NotFound";
 import VideoPlayer from "pages/VideoPlayer";
@@ -12,7 +12,7 @@ export default function CustomerRoutes() {
     <Routes>
       <Route path="*" element={<NotFound />} />
       <Route path="/" element={<Home />} />
-      <Route path="/content/:code" element={<Content />} />
+      <Route path="/media/:code" element={<Media />} />
       <Route path="/video/:code" element={<VideoPlayer />} />
     </Routes>
   );

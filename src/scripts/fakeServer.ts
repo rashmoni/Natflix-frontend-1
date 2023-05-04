@@ -13,6 +13,7 @@ import eMediaType from "types/eMediaType";
 import iMedia from "types/iMedia";
 import iDetailsOther from "types/iDetailsOther";
 import iTVSeries from "types/iTVSeries";
+import eUserType from "types/eUserType";
 
 export default function fakeServer(endPoint: string, data: any = null): any {
   switch (endPoint) {

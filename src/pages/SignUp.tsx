@@ -9,7 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import ListInput from "components/ListInput";
 import Fields from "data/fields-sign-up.json";
 import { useUser } from "state/UserContext";
-import iUser from "interfaces/iUser";
+import iUser from "types/iUser";
 
 export default function Login() {
   // Global state

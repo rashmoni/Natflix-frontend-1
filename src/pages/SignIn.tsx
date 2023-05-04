@@ -8,8 +8,8 @@ import { Link } from "react-router-dom";
 // Project files
 import ListInput from "components/ListInput";
 import Fields from "data/fields-sign-in.json";
-import iUser from "interfaces/iUser";
 import { useUser } from "state/UserContext";
+import iUser from "types/iUser";
 
 export default function Login() {
   // Global state
