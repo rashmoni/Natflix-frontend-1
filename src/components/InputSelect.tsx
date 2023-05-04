@@ -1,5 +1,5 @@
 // Node modules
-import { ChangeEvent } from "react";
+import { ChangeEvent, useEffect } from "react";
 
 // Project files
 import iInputSelect from "types/iInputSelect";

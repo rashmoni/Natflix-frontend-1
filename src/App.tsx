@@ -1,35 +1,28 @@
 // Node modules
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 // Project files
 import Modal from "components/Modal";
-import Admin from "pages/Admin";
-import AdminMedia from "pages/AdminMedia";
-import AdminTVSeries from "pages/AdminTVSeries";
-import Media from "pages/Media";
-import Home from "pages/Home";
-import NotFound from "pages/NotFound";
-import VideoPlayer from "pages/VideoPlayer";
-import { ModalProvider } from "state/ModalContext";
+import eUserType from "interfaces/eUserType";
+import AdminRoutes from "routes/AdminRoutes";
+import CustomerRoutes from "routes/CustomerRoutes";
+import UnloggedRoutes from "routes/UnlogedRoutes";
+import { useUser } from "state/UserContext";
 import "styles/style.css";
 
 export default function App() {
+  // Global state
+  const { user } = useUser();
+
   return (
     <div className="App">
-      <ModalProvider>
-        <BrowserRouter>
-          <Routes>
-            <Route path="*" element={<NotFound />} />
-            <Route path="/" element={<Home />} />
-            <Route path="/media/:code" element={<Media />} />
-            <Route path="/video/:code" element={<VideoPlayer />} />
-            <Route path="/admin-media/:code" element={<AdminMedia />} />
-            <Route path="/admin-tv-series/:code" element={<AdminTVSeries />} />
-            <Route path="/admin" element={<Admin />} />
-          </Routes>
-          <Modal />
-        </BrowserRouter>
-      </ModalProvider>
+      <BrowserRouter>
+        {user === null && <UnloggedRoutes />}
+        {user?.type === eUserType.ADMIN && <AdminRoutes />}
+        {user?.type === eUserType.CUSTOMER && <CustomerRoutes />}
+        {/* To handle the modal/popups of the website */}
+        <Modal />
+      </BrowserRouter>
     </div>
   );
 }

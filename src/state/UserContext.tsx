@@ -1,37 +1,40 @@
 // Node modules
 import { createContext, ReactNode, useContext, useState } from "react";
 
+// Project files
+import iUser from "interfaces/iUser";
+
 // Interfaces
 interface iProps {
   children: ReactNode;
 }
 interface iValues {
-  modal: ReactNode | null;
-  setModal: Function;
+  user: iUser | null;
+  setUser: Function;
 }
 
 // Properties
 const initialValues: iValues = {
-  modal: null,
-  setModal: () => {},
+  user: null,
+  setUser: () => {},
 };
 const Context = createContext(initialValues);
 
 // Methods
-export function ModalProvider({ children }: iProps) {
+export function UserProvider({ children }: iProps) {
   // Local state
-  const [modal, setModal] = useState(null);
+  const [user, setUser] = useState(null);
 
   // Properties
-  const value: iValues = { modal, setModal };
+  const value: iValues = { user, setUser };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }
 
-export function useModal() {
+export function useUser() {
   const context = useContext(Context);
   const errorText =
-    "To use useModal(), you need to wrap the parent component with <ModalProvider/>";
+    "To use useUser(), you need to wrap the parent component with <UserProvider/>";
 
   // Safeguards
   if (!context) throw new Error(errorText);
