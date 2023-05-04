@@ -1,5 +1,5 @@
 // Node modules
-import { ChangeEvent, useState } from "react";
+import { useState } from "react";
 
 // Project files
 import ItemEpisodes from "components/ItemEpisode";
