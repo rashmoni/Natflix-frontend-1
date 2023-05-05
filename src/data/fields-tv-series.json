@@ -13,7 +13,7 @@
     "label": "Summary",
     "placeholder": "A time travel story of a boy and his mentor",
     "required": true,
-    "type": "text"
+    "type": "text-area"
   },
   {
     "key": "genre_id",

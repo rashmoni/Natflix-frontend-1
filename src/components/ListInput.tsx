@@ -1,7 +1,8 @@
 // Project files
-import InputField from "./InputField";
-import InputImage from "./InputImage";
-import InputSelect from "./InputSelect";
+import InputField from "components/InputField";
+import InputImage from "components/InputImage";
+import InputSelect from "components/InputSelect";
+import InputTextArea from "components/InputTextArea";
 
 interface iProps {
   fields: any;
@@ -15,6 +16,8 @@ export default function ListInput({ fields, state }: iProps) {
         return <InputSelect key={index} field={item} state={state} />;
       case "image":
         return <InputImage key={index} field={item} state={state} />;
+      case "text-area":
+        return <InputTextArea key={index} field={item} state={state} />;
       default:
         return <InputField key={index} field={item} state={state} />;
     }

@@ -20,7 +20,6 @@ export default function App() {
         {user === null && <UnloggedRoutes />}
         {user?.type === eUserType.ADMIN && <AdminRoutes />}
         {user?.type === eUserType.CUSTOMER && <CustomerRoutes />}
-        {/* To handle the modal/popups of the website */}
         <Modal />
       </BrowserRouter>
     </div>
