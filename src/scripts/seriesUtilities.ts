@@ -2,7 +2,7 @@
 import iTVSeries from "types/iTVSeries";
 
 export default class SeriesUtilities {
-  public static getSeasonsNumber(episodes: iTVSeries[]): number {
+  public static getTotalSeasons(episodes: iTVSeries[]): number {
     const seasonsAvailable = episodes.map((item) => item.season_number);
     const seasonsSorted = seasonsAvailable.sort((a, b) => b - a);
     const result: number = seasonsSorted[0]; // take the highest number

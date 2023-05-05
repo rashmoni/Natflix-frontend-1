@@ -18,9 +18,9 @@ export default function EpisodeChooser({ episodes, onClick }: iProps) {
   const [data, setData] = useState({ season_number: 1 });
 
   // Properties
-  const numberOfSeasons = Utilities.getSeasonsNumber(episodes);
+  const totalSeasons = Utilities.getTotalSeasons(episodes);
   const currentEpisodes = Utilities.getEpisodes(episodes, data.season_number);
-  const inputSelectLabels = Utilities.getSeasonLabels(numberOfSeasons);
+  const inputSelectLabels = Utilities.getSeasonLabels(totalSeasons);
   const fields: iInputSelect = {
     key: "season_number",
     label: "",
