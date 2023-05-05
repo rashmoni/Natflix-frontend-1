@@ -16,7 +16,7 @@ interface iProps {
 }
 
 export default function ItemAdminMedia({ item, endPoint, fields }: iProps) {
-  const { id, media_type_id: type_id, title, thumbnail_url } = item;
+  const { id, media_type_id, title, thumbnail_url } = item;
 
   // Global
   const { setModal } = useModal();
@@ -40,7 +40,7 @@ export default function ItemAdminMedia({ item, endPoint, fields }: iProps) {
       <div className="buttons">
         <button onClick={() => setModal(Update)}>Update</button>
         <button onClick={() => setModal(Delete)}>Delete</button>
-        {type_id === eMediaType.SERIES && TVSeriesEpisodes}
+        {media_type_id === eMediaType.SERIES && TVSeriesEpisodes}
       </div>
     </article>
   );
