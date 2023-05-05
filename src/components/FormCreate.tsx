@@ -11,12 +11,11 @@ interface iProps {
   fields: Array<any>;
 }
 
-export default function FormUpdate({ endPoint, fields }: iProps) {
+export default function FormCreate({ endPoint, fields }: iProps) {
   // Global state
   const { setModal } = useModal();
 
   // Local state
-  // Debug - remove foo bar
   const [form, setForm] = useState({});
 
   // Methods
@@ -43,10 +42,8 @@ export default function FormUpdate({ endPoint, fields }: iProps) {
       <h2>Add information</h2>
       <ListInput fields={fields} state={[form, setForm]} />
       <hr />
-      <button className="button-gray">Create</button>
-      <button className="button-gray" onClick={() => setModal(null)}>
-        Cancel
-      </button>
+      <button>Create</button>
+      <button onClick={() => setModal(null)}>Cancel</button>
     </form>
   );
 }
