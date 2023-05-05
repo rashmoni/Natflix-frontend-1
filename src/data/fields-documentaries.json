@@ -13,7 +13,7 @@
     "label": "Summary",
     "placeholder": "A time travel story of a boy and his mentor",
     "required": true,
-    "type": "text"
+    "type": "text-area"
   },
   {
     "key": "genre_id",
@@ -29,6 +29,14 @@
     "autoFocus": false,
     "label": "Narrator",
     "placeholder": "Peter Coyote",
+    "required": true,
+    "type": "text"
+  },
+  {
+    "key": "video_code",
+    "autoFocus": true,
+    "label": "YouTube video code",
+    "placeholder": "The 11 digits of a YouTube video",
     "required": true,
     "type": "text"
   },

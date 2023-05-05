@@ -11,7 +11,7 @@ export default function AdminRoutes() {
   return (
     <Routes>
       <Route path="*" element={<NotFound />} />
-      <Route path="/" element={<Admin />} />
+      <Route path="/admin" element={<Admin />} />
       <Route path="/admin-media/:code" element={<AdminMedia />} />
       <Route path="/admin-tv-series/:code" element={<AdminTVSeries />} />
     </Routes>
