@@ -19,7 +19,7 @@ export default function NavigationBarAdmin() {
 
   return (
     <nav className="navigation-bar">
-      <Link to="/admin">
+      <Link to="/">
         <img src={Logo} />
       </Link>
       <div className="links">{Links}</div>
