@@ -49,3 +49,15 @@ If is a tv-series, the user can click on the dropdown menu to filter epidodes by
 The video page takes the video code sent from the play button or episode item inside the modal detail and opens a YouTube video corresponding to the video code.
 
 ![](public/readme-images/diagram-4.png)
+
+# Tech stack
+
+## Frontend
+
+- Webpack: The bundler that compiles and handle the different files on the project. All its configuration is created automatically when we started the project using the `npx create-react-app --typescript` template.
+- React v18: Our framework to build the User Inteface. We are coding using functional components to break the app down into smaller pieces and using React's Context API to handle global state management.
+- TypeScript v4: Our coding language in the frontend to write the logic. Used primarily to enable strong data typing in the frontend by using interfaces and ennumerators.
+- CSS v3: Pure CSS without pre-proccesors like SASS, post-processors like PostCSS, or even frameworks like Bootstrap. The intention is to avoid adding additional setup steps just for the graphic design.
+
+## Backend
+Space for Roberto to add similar information about Postman to debug the API, SpringBoot to create the API's. Java the main backend language, S2 to host the server and everything else, even the OS if S2 needs it.
