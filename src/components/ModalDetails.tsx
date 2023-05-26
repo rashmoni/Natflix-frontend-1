@@ -17,6 +17,8 @@ import iMedia from "types/iMedia";
 import eMediaType from "types/eMediaType";
 import iDetailsOther from "types/iDetailsOther";
 import iTVSeries from "types/iTVSeries";
+import DetailsMovie from "./DetailsMovie";
+import DetailsDocumentary from "./DetailsDocumentary";
 
 interface iProps {
   item: iMedia;
@@ -35,11 +37,15 @@ export default function ModalDetails({ item }: iProps) {
   const [dataSerie, setDataSerie] = useState(Array<iTVSeries>);
 
   // Properties
-  const isASeries: boolean = media_type_id === eMediaType.SERIES;
+  const isTVSeries: boolean = media_type_id === eMediaType.SERIES;
+  const isMovie: boolean = media_type_id === eMediaType.MOVIES;
+  const isDocumentary: boolean = media_type_id === eMediaType.DOCUMENTARIES;
   const emptyOther: boolean = Object(dataOther).length === 0;
   const emptySeries: boolean = dataSerie.length === 0;
   const endPoint = chooseEndPoint(media_type_id);
-  const videoCode = isASeries ? dataSerie[0]?.video_code : dataOther.video_code;
+  const videoCode = isTVSeries
+    ? dataSerie[0]?.video_code
+    : dataOther.video_code;
 
   // Methods
   useEffect(() => {
@@ -49,7 +55,7 @@ export default function ModalDetails({ item }: iProps) {
   }, []);
 
   function onSuccess(data: any) {
-    isASeries ? setDataSerie(data) : setDataOther(data);
+    isTVSeries ? setDataSerie(data) : setDataOther(data);
     setStatus(eStatus.READY);
   }
 
@@ -85,10 +91,12 @@ export default function ModalDetails({ item }: iProps) {
     <div className="modal-details">
       <HeroDetails item={item} videoCode={videoCode} onClick={goVideo} />
       <section className="description">
+        {isMovie && <DetailsMovie details={dataOther} />}
+        {isDocumentary && <DetailsDocumentary details={dataOther} />}
         <h2>{title}</h2>
         <p>{summary}</p>
       </section>
-      {isASeries && <EpisodeChooser episodes={dataSerie} onClick={goVideo} />}
+      {isTVSeries && <EpisodeChooser episodes={dataSerie} onClick={goVideo} />}
     </div>
   );
 }
