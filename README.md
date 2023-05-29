@@ -59,5 +59,10 @@ The video page takes the video code sent from the play button or episode item in
 - TypeScript v4: Our coding language in the frontend to write the logic. Used primarily to enable strong data typing in the frontend by using interfaces and ennumerators.
 - CSS v3: Pure CSS without pre-proccesors like SASS, post-processors like PostCSS, or even frameworks like Bootstrap. The intention is to avoid adding additional setup steps just for the graphic design.
 
+## Dependencies
+
+- Node.js v18.12.1 (LTS): To run the commands `npm install` and `npm run` to install the frontend dependencies listed above in the tech stack and run the frontend in your computer.
+
 ## Backend
+
 Space for Roberto to add similar information about Postman to debug the API, SpringBoot to create the API's. Java the main backend language, S2 to host the server and everything else, even the OS if S2 needs it.
