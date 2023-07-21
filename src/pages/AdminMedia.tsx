@@ -29,18 +29,24 @@ export default function AdminMedia() {
   const [data, setData] = useState(new Array<iMedia>());
 
   // Properties
-  const endPoint: string = "media/";
+  //const endPoint: string = "media/";
+
+  const endPoint = "http://localhost:9090/api/";
   const fields = chooseFields(code);
 
   // Methods
   useEffect(() => {
-    fakeFetch(endPoint + code + "/")
-      .then((response) => onSuccess(response.data))
+    fetch(endPoint+code+"/")
+      .then ((response) => response.json())
+      .then((result) => onSuccess(result))
       .catch((error) => onFailure(error));
+      console.log(data);
   }, [code]);
+
 
   function onSuccess(data: iMedia[]) {
     setData(data);
+    console.log(data);
     setStatus(eStatus.READY);
   }
 
@@ -63,9 +69,9 @@ export default function AdminMedia() {
   }
 
   // Components
-  const Create = <FormCreate fields={fields} endPoint={endPoint} />;
+  const Create = <FormCreate fields={fields} endPoint={endPoint+code+"/"} />;
   const Items = data.map((item) => (
-    <Item key={item.id} item={item} endPoint={endPoint} fields={fields} />
+    <Item key={item.id} item={item} endPoint={endPoint+code+"/"} fields={fields} />
   ));
 
   // Safeguards

@@ -14,13 +14,34 @@ export default function FormDelete({ endPoint, id }: iProps) {
   // Global state
   const { setModal } = useModal();
 
+    //Properties
+    const METHOD = "DELETE"
+    const HEADERS = { "Content-type": "application/json; charset=UTF-8"};
+
   // Methods
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    fakeFetch(endPoint + "delete/", id)
+    fetch(endPoint + "delete/"+id,{
+      method: METHOD,
+      headers: HEADERS})
       .then(onSuccess)
       .catch((error) => onFailure(error));
+      console.log(endPoint);
+      console.log(id);
   }
+
+  /*
+ fetch(endPoint + "movies/create", {
+      method: METHOD,
+      headers: HEADERS,
+      body: JSON.stringify(form),})
+      .then(onSuccess)
+      .catch((error) => onFailure(error));
+      console.log(endPoint);
+      console.log(form);
+  }
+
+  */
 
   function onSuccess() {
     alert("Item deleted!");

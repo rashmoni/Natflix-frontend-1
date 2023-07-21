@@ -24,14 +24,16 @@ export default function Media() {
   const [data, setData] = useState(new Array<iMedia>());
 
   // Properties
-  const endPoint = "media/";
+  const endPoint = "http://localhost:9090/api/";
 
   // Methods
   useEffect(() => {
-    fakeFetch(endPoint + code + "/")
-      .then((response) => onSuccess(response.data))
-      .catch((error) => onFailure(error));
+    fetch(endPoint + code + "/")
+    .then ((response) => response.json())
+    .then((result) => onSuccess(result))
+    .catch((error) => onFailure(error));
   }, [code]);
+
 
   function onSuccess(data: iMedia[]) {
     setData(data);

@@ -27,14 +27,19 @@ export default function AdminDetailSeries() {
   const [data, setData] = useState(new Array<iTVSeries>());
 
   // Properties
-  const endPoint: string = "tv-series/:id/";
+  //const endPoint: string = "tv-series/:id/";
 
-  // Methods
-  useEffect(() => {
-    fakeFetch(endPoint, code)
-      .then((response) => onSuccess(response.data))
-      .catch((error) => onFailure(error));
-  }, []);
+  const endPoint = "http://localhost:9090/api/episodes/";
+
+  
+ // Methods
+ useEffect(() => {
+  fetch(endPoint+code)
+    .then ((response) => response.json())
+    .then((result) => onSuccess(result))
+    .catch((error) => onFailure(error));
+    console.log(data);
+}, [code]);
 
   function onSuccess(data: iTVSeries[]) {
     setData(data);
@@ -49,7 +54,7 @@ export default function AdminDetailSeries() {
   // Components
   const Create = <FormCreate fields={fields} endPoint={endPoint} />;
   const Items = data.map((item) => (
-    <Item key={item.id} item={item} endPoint={endPoint} fields={fields} />
+    <Item key={item.id} item={item} endPoint={endPoint+code+"/"} fields={fields} />
   ));
 
   // Safeguards

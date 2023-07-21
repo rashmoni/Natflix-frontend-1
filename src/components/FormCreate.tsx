@@ -18,13 +18,24 @@ export default function FormCreate({ endPoint, fields }: iProps) {
   // Local state
   const [form, setForm] = useState({});
 
+  //Properties
+  const METHOD = "POST"
+  const HEADERS = { "Content-type": "application/json; charset=UTF-8"};
+
   // Methods
+
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    fakeFetch(endPoint + "create/", form)
+    fetch(endPoint + "create", {
+      method: METHOD,
+      headers: HEADERS,
+      body: JSON.stringify(form),})
       .then(onSuccess)
       .catch((error) => onFailure(error));
+      console.log(endPoint);
+      console.log(form);
   }
+
 
   function onSuccess() {
     alert("Item created!");

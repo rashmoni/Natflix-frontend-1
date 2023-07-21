@@ -20,7 +20,7 @@ export default function Home() {
   const [data, setData] = useState(new Array<iMedia>());
 
   // Properties
-  const endPoint = "media/";
+  const endPoint = "http://localhost:9090/api/media/";
   const tvSeries = data.filter((item) => item.media_type_id === 1);
   const movies = data.filter((item) => item.media_type_id === 2);
   const documentaries = data.filter((item) => item.media_type_id === 3);
@@ -28,8 +28,9 @@ export default function Home() {
 
   // Methods
   useEffect(() => {
-    fakeFetch(endPoint)
-      .then((response) => onSuccess(response.data))
+    fetch(endPoint)
+      .then ((response) => response.json())
+      .then((result) => onSuccess(result))
       .catch((error) => onFailure(error));
   }, []);
 
