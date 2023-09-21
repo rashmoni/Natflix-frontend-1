@@ -10,13 +10,17 @@ interface iProps {
 }
 interface iValues {
   user: iUser | null;
+  token: string;
   setUser: Function;
+  setToken: Function;
 }
 
 // Properties
 const initialValues: iValues = {
   user: null,
+  token: "",
   setUser: () => {},
+  setToken: () => {},
 };
 const Context = createContext(initialValues);
 
@@ -24,9 +28,10 @@ const Context = createContext(initialValues);
 export function UserProvider({ children }: iProps) {
   // Local state
   const [user, setUser] = useState(null);
+  const [token, setToken] = useState("");
 
   // Properties
-  const value: iValues = { user, setUser };
+  const value: iValues = { user, token, setUser, setToken };
 
   return <Context.Provider value={value}>{children}</Context.Provider>;
 }

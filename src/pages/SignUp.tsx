@@ -14,7 +14,7 @@ import iUser from "types/iUser";
 export default function Login() {
   // Global state
   const navigate = useNavigate();
-  const { user, setUser } = useUser();
+  const { setToken, setUser } = useUser();
 
   // Local state
   const [form, setForm] = useState({});
@@ -27,15 +27,17 @@ export default function Login() {
     event.preventDefault();
 
     fakeFetch(endPoint, form)
-      .then((response) => onSuccess(response.data))
+      .then((response) => response.json())
+      .then((result) => onSuccess(result))
       .catch((error) => onFailure(error));
   }
 
-  function onSuccess(newUser: iUser) {
-    console.log(newUser);
+  function onSuccess(result: any) {
+    console.log("onSuccess result", result);
 
     alert("Welcome to Natflix!");
-    setUser(newUser);
+    setToken(result.token);
+    setUser(result.user);
     navigate("/");
   }
 

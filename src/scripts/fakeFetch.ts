@@ -7,6 +7,7 @@
 import fakeServer from "scripts/fakeServer";
 
 interface iResponse {
+  [x: string]: any;
   status: string;
   data: Array<any> | any;
 }
