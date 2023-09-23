@@ -1,9 +1,10 @@
 // MPM packages
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 
 // Project files
+import ListInput from "components/ListInput";
 import { useModal } from "state/ModalContext";
-import fakeFetch from "scripts/fakeFetch";
+import { useUser } from "state/UserContext";
 
 interface iProps {
   endPoint: string;
@@ -13,10 +14,19 @@ interface iProps {
 export default function FormDelete({ endPoint, id }: iProps) {
   // Global state
   const { setModal } = useModal();
+  const { token } = useUser();
+  const { setToken, setUser } = useUser();
+
+    // Local state
+    const [form, setForm] = useState({});
 
     //Properties
-    const METHOD = "DELETE"
-    const HEADERS = { "Content-type": "application/json; charset=UTF-8"};
+  //Properties
+  const METHOD = "DELETE";
+  const HEADERS = {
+    "Content-type": "application/json; charset=UTF-8",
+    Authorization: "Bearer " + token,
+  };
 
   // Methods
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
@@ -30,18 +40,6 @@ export default function FormDelete({ endPoint, id }: iProps) {
       console.log(id);
   }
 
-  /*
- fetch(endPoint + "movies/create", {
-      method: METHOD,
-      headers: HEADERS,
-      body: JSON.stringify(form),})
-      .then(onSuccess)
-      .catch((error) => onFailure(error));
-      console.log(endPoint);
-      console.log(form);
-  }
-
-  */
 
   function onSuccess() {
     alert("Item deleted!");

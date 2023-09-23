@@ -1,5 +1,5 @@
 // Fake fetch
-import fakeFetch from "scripts/fakeFetch";
+//import fakeFetch from "scripts/fakeFetch";
 
 // Node modules
 import { FormEvent, useState } from "react";
@@ -18,13 +18,25 @@ export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
 
   // Properties
-  const endPoint = "login/";
+  const endPoint = "http://localhost:9090/api/v1/auth/login";
 
   // Methods
   function onSubmit(event: FormEvent): void {
     event.preventDefault();
 
-    fakeFetch(endPoint, form)
+    const setup = {
+      method: "POST",
+      mode: "cors",
+      cache: "no-cache",
+      credentials: "same-origin",
+      headers: { "Content-Type": "application/json" },
+      redirect: "follow", 
+      referrerPolicy: "no-referrer",
+      body: JSON.stringify(form),
+    };
+
+    // @ts-ignore
+    fetch(endPoint, setup)
       .then((response) => response.json())
       .then((result) => onSuccess(result))
       .catch((error) => onFailure(error));
@@ -32,9 +44,9 @@ export default function Login() {
 
   function onSuccess(result: any) {
     console.log("onSuccess result", result);
-
     setToken(result.token);
     setUser(result.user);
+    console.log(result.user);
   }
 
   function onFailure(error: string) {

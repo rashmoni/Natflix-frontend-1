@@ -1,5 +1,6 @@
 // Fake data (replace this with a real fetch)
-import fakeFetch from "scripts/fakeFetch";
+//import fakeFetch from "scripts/fakeFetch";
+import { useUser } from "state/UserContext";
 
 // Node modules
 import { useParams } from "react-router-dom";
@@ -19,16 +20,29 @@ export default function Media() {
   // Global state
   const { code } = useParams();
 
+  const { token } = useUser();
+
   // Local state
   const [status, setStatus] = useState(eStatus.LOADING);
   const [data, setData] = useState(new Array<iMedia>());
 
   // Properties
-  const endPoint = "http://localhost:9090/api/";
+  const endPoint = "http://localhost:9090/api/v1/media/";
+
+
+   //Properties
+   const METHOD = "GET";
+   const HEADERS = {
+     "Content-type": "application/json; charset=UTF-8",
+     Authorization: "Bearer " + token,
+  
+   };
 
   // Methods
   useEffect(() => {
-    fetch(endPoint + code + "/")
+    fetch(endPoint + code + "/", {
+      method: METHOD,
+      headers: HEADERS,})
     .then ((response) => response.json())
     .then((result) => onSuccess(result))
     .catch((error) => onFailure(error));

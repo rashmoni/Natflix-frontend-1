@@ -20,26 +20,40 @@ export default function Login() {
   const [form, setForm] = useState({});
 
   // Properties
-  const endPoint = "register/";
+  const endPoint = "http://localhost:9090/api/v1/auth/register";
+  const METHOD = "POST"
+  const HEADERS = { "Content-type": "application/json; charset=UTF-8"};
 
   // Methods
   function onSubmit(event: FormEvent): void {
     event.preventDefault();
 
-    fakeFetch(endPoint, form)
+    fetch(endPoint, {
+      method: METHOD,
+      headers: HEADERS,
+      body: JSON.stringify(form),})
       .then((response) => response.json())
-      .then((result) => onSuccess(result))
+      .then(onSuccess)
       .catch((error) => onFailure(error));
   }
 
+  function onSuccess(result: any) {
+    console.log("onSuccess result", result);
+    setToken(result.token);
+    setUser(result.user);
+    console.log(result.user);
+    alert("Registration Successfull. Welcome to Natflix!");
+    navigate("/");
+  }
+  /*
   function onSuccess(result: any) {
     console.log("onSuccess result", result);
 
     alert("Welcome to Natflix!");
     setToken(result.token);
     setUser(result.user);
-    navigate("/");
-  }
+    navigate("/home");
+  }*/
 
   function onFailure(error: string) {
     console.error(Error);

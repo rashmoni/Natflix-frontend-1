@@ -5,7 +5,7 @@ import { FormEvent, useState } from "react";
 import ListInput from "components/ListInput";
 import { generateFields } from "scripts/formUtilities";
 import { useModal } from "state/ModalContext";
-import fakeFetch from "scripts/fakeFetch";
+import { useUser } from "state/UserContext";
 
 interface iProps {
   endPoint: string;
@@ -16,27 +16,23 @@ interface iProps {
 export default function FormUpdate({ endPoint, fields, data }: iProps) {
   // Global state
   const { setModal } = useModal();
+  const { token } = useUser();
 
   // Local state
   const [form, setForm] = useState(generateFields(fields, data));
 
 
   //Properties
-  const METHOD = "PUT"
-  const HEADERS = { "Content-type": "application/json; charset=UTF-8"};
+  const METHOD = "PUT";
+  const HEADERS = {
+    "Content-type": "application/json; charset=UTF-8",
+    Authorization: "Bearer " + token,
+  };
 
   // Methods
   async function onSubmit(event: FormEvent<HTMLFormElement>) {
     const editedItem = { ...form, id: data.id };
     
-
-    /*event.preventDefault();
-    fetch(endPoint + "update/", editedItem)
-      .then(onSuccess)
-      .catch((error) => onFailure(error));
-      console.log(editedItem);
-      console.log(endPoint);
-  }*/
 
   event.preventDefault();
   fetch(endPoint + "update", {
@@ -48,6 +44,7 @@ export default function FormUpdate({ endPoint, fields, data }: iProps) {
    .catch((error)=>onFailure(error));
    console.log(editedItem);
    console.log(endPoint);
+   console.log(token);
 }
 
 

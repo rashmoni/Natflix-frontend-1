@@ -1,5 +1,6 @@
 // Fake data (replace this with a real fetch)
-import fakeFetch from "scripts/fakeFetch";
+//import fakeFetch from "scripts/fakeFetch";
+import { useUser } from "state/UserContext";
 
 // Node modules
 import { useEffect, useState } from "react";
@@ -24,6 +25,8 @@ export default function AdminMedia() {
   const { code } = useParams();
   const { setModal } = useModal();
 
+  const { token } = useUser();
+
   // Local state
   const [status, setStatus] = useState(eStatus.LOADING);
   const [data, setData] = useState(new Array<iMedia>());
@@ -31,16 +34,26 @@ export default function AdminMedia() {
   // Properties
   //const endPoint: string = "media/";
 
-  const endPoint = "http://localhost:9090/api/";
+  const endPoint = "http://localhost:9090/api/v1/";
   const fields = chooseFields(code);
+
+     const METHOD = "GET";
+     const HEADERS = {
+       "Content-type": "application/json; charset=UTF-8",
+       Authorization: "Bearer " + token,
+    
+     };
 
   // Methods
   useEffect(() => {
-    fetch(endPoint+code+"/")
+    fetch(endPoint+code+"/",{
+      method: METHOD,
+      headers: HEADERS,})
       .then ((response) => response.json())
       .then((result) => onSuccess(result))
       .catch((error) => onFailure(error));
       console.log(data);
+      console.log(endPoint+code);
   }, [code]);
 
 
