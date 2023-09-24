@@ -74,7 +74,7 @@ export default function AdminMedia() {
         return FieldsTVSeries;
       case "documentaries":
         return FieldsDocumentaries;
-      case "movie":
+      case "movies":
         return FieldsMovies;
       default:
         throw new Error(`Invalid code: ${code}`);
