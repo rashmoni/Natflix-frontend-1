@@ -25,7 +25,7 @@ export default function Home() {
   const { token } = useUser();
 
   // Properties
-  const endPoint = "http://localhost:9090/api/v1/media/";
+  const endPoint = "http://20.240.55.130:9090/api/v1/media/";
   const tvSeries = data.filter((item) => item.media_type_id === 1);
   const movies = data.filter((item) => item.media_type_id === 2);
   const documentaries = data.filter((item) => item.media_type_id === 3);
