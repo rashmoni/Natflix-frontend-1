@@ -27,7 +27,7 @@ export default function Media() {
   const [data, setData] = useState(new Array<iMedia>());
 
   // Properties
-  const endPoint = "http://localhost:9090/api/v1/media/";
+  const endPoint = "http://20.240.55.130:9090/api/v1/media/";
 
 
    //Properties
