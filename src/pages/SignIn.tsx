@@ -18,7 +18,7 @@ export default function Login() {
   const [form, setForm] = useState({ email: "", password: "" });
 
   // Properties
-  const endPoint = "http://20.240.55.130:9090/api/v1/auth/login";
+  const endPoint = "http://192.168.10.206:9090/api/v1/auth/login";
 
   // Methods
   function onSubmit(event: FormEvent): void {
