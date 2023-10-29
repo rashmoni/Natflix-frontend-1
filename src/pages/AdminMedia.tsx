@@ -34,7 +34,7 @@ export default function AdminMedia() {
   // Properties
   //const endPoint: string = "media/";
 
-  const endPoint = "http://192.168.10.206:9090/api/v1/";
+  const endPoint = "http://195.128.241.43:9090/api/v1/";
   const fields = chooseFields(code);
 
      const METHOD = "GET";

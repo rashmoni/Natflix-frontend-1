@@ -29,7 +29,7 @@ export default function AdminDetailSeries() {
   // Properties
   //const endPoint: string = "tv-series/:id/";
 
-  const endPoint = "http://192.168.10.206:9090/api/v1/episodes/";
+  const endPoint = "http://195.128.241.43:9090/api/v1/episodes/";
 
   
  // Methods

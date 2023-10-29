@@ -20,7 +20,7 @@ export default function Login() {
   const [form, setForm] = useState({});
 
   // Properties
-  const endPoint = "http://192.168.10.206:9090/api/v1/auth/register";
+  const endPoint = "http://195.128.241.43:9090/api/v1/auth/register";
   const METHOD = "POST"
   const HEADERS = { "Content-type": "application/json; charset=UTF-8"};
 
